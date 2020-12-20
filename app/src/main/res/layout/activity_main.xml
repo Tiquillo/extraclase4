@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:text="AA Tree demonstration"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/generate500Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="200dp"
         android:text="Generate 500 elements"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -51,6 +54,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         android:text="Manually add"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/numberToAdd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +71,10 @@
         android:inputType="number"
         android:selectAllOnFocus="true"
         android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintHorizontal_bias="0.651"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -106,6 +113,7 @@
         android:layout_marginTop="81dp"
         android:layout_marginEnd="170dp"
         android:text="Number of elements:"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addRanButton" />
@@ -123,5 +131,19 @@
         app:layout_constraintEnd_toStartOf="@+id/addButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberToAdd" />
+
+    <TextView
+        android:id="@+id/lastOperationLasted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="242dp"
+        android:layout_marginBottom="127dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberOfNodes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,46 +1,8 @@
-package com.tiquillo.aatreeimplementation;
+package com.tiquillo.aatreeimplementation.aatree;
 
+import com.tiquillo.aatreeimplementation.aatree.AANode;
 
-/**
- *  Java Program to Implement AA Tree
- */
-
-import java.util.Scanner;
-import java.util.NoSuchElementException;
-
-/** Class AANode **/
-public class AANode
-{
-    AANode left, right;
-    int element, level;
-
-    /** Constructor **/
-    public AANode()
-    {
-        this.element = 0;
-        this.left = this;
-        this.right = this;
-        this.level = 0;
-    }
-
-    /** Constructor **/
-    public AANode(int ele)
-    {
-        this(ele, null, null);
-    }
-
-    /** Constructor **/
-    public AANode(int ele, AANode left, AANode right)
-    {
-        this.element = ele;
-        this.left = left;
-        this.right = right;
-        this.level = 1;
-    }
-}
-
-/** Class AATree **/
-class AATree
+public class AATree
 {
     private AANode root;
     private static AANode nil = new AANode();
