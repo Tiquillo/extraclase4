@@ -1,39 +1,33 @@
 package com.tiquillo.aatreeimplementation.aatree;
 
-import com.tiquillo.aatreeimplementation.aatree.AANode;
-
 public class AATree
 {
     private AANode root;
-    private static AANode nil = new AANode();
+    private static AANode newerNode = new AANode();
 
-    /** Constructor **/
     public AATree()
     {
-        root = nil;
+        root = newerNode;
     }
 
-    /** Function to check if tree is empty **/
     public boolean isEmpty()
     {
-        return root == nil;
+        return root == newerNode;
     }
 
-    /** Make the tree empty **/
     public void clear()
     {
-        root = nil;
+        root = newerNode;
     }
 
-    /* Functions to insert data */
     public void insert(int X)
     {
         root = insert(X, root);
     }
     private AANode insert(int X, AANode T)
     {
-        if (T == nil)
-            T = new AANode(X, nil, nil);
+        if (T == newerNode)
+            T = new AANode(X, newerNode, newerNode);
         else if ( X < T.element )
             T.left = insert(X, T.left);
         else if ( X > T.element)
@@ -46,12 +40,11 @@ public class AATree
         return T;
     }
 
-    /** Function Skew **/
     private AANode skew(AANode T)
     {
-        if (T == nil)
-            return nil;
-        else if (T.left == nil)
+        if (T == newerNode)
+            return newerNode;
+        else if (T.left == newerNode)
             return T;
         else if (T.left.level == T.level)
         {
@@ -64,12 +57,11 @@ public class AATree
             return T;
     }
 
-    /** Function split **/
     private AANode split(AANode T)
     {
-        if (T == nil)
-            return nil;
-        else if (T.right == nil || T.right.right == nil)
+        if (T == newerNode)
+            return newerNode;
+        else if (T.right == newerNode || T.right.right == newerNode)
             return T;
         else if (T.level == T.right.right.level)
         {
@@ -84,7 +76,6 @@ public class AATree
             return T;
     }
 
-    /** Function decrease key **/
     private AANode decreaseLevel(AANode T)
     {
         int shouldBe = Math.min(T.left.level, T.right.level) + 1;
@@ -97,14 +88,13 @@ public class AATree
         return T;
     }
 
-    /** Functions to count number of nodes **/
     public int countNodes()
     {
         return countNodes(root);
     }
     private int countNodes(AANode r)
     {
-        if (r == nil)
+        if (r == newerNode)
             return 0;
         else
         {
@@ -114,15 +104,15 @@ public class AATree
             return l;
         }
     }
-    /** Functions to search for an element **/
     public boolean search(int val)
     {
         return search(root, val);
     }
+
     private boolean search(AANode r, int val)
     {
         boolean found = false;
-        while ((r != nil) && !found)
+        while ((r != newerNode) && !found)
         {
             int rval = r.element;
             if (val < rval)
@@ -137,47 +127,5 @@ public class AATree
             found = search(r, val);
         }
         return found;
-    }
-    /** Function for inorder traversal **/
-    public void inorder()
-    {
-        inorder(root);
-    }
-    private void inorder(AANode r)
-    {
-        if (r != nil)
-        {
-            inorder(r.left);
-            System.out.print(r.element +" ");
-            inorder(r.right);
-        }
-    }
-    /** Function for preorder traversal **/
-    public void preorder()
-    {
-        preorder(root);
-    }
-    private void preorder(AANode r)
-    {
-        if (r != nil)
-        {
-            System.out.print(r.element +" ");
-            preorder(r.left);
-            preorder(r.right);
-        }
-    }
-    /** Function for postorder traversal **/
-    public void postorder()
-    {
-        postorder(root);
-    }
-    private void postorder(AANode r)
-    {
-        if (r != nil)
-        {
-            postorder(r.left);
-            postorder(r.right);
-            System.out.print(r.element +" ");
-        }
     }
 }

@@ -1,17 +1,10 @@
 package com.tiquillo.aatreeimplementation.aatree;
 
-
-/**
- *  Java Program to Implement AA Tree
- */
-
-/** Class AANode **/
 public class AANode
 {
     AANode left, right;
     int element, level;
 
-    /** Constructor **/
     public AANode()
     {
         this.element = 0;
@@ -20,16 +13,15 @@ public class AANode
         this.level = 0;
     }
 
-    /** Constructor **/
-    public AANode(int ele)
+    public AANode(int elem)
     {
-        this(ele, null, null);
+        this(elem, null, null);
     }
 
     /** Constructor **/
-    public AANode(int ele, AANode left, AANode right)
+    public AANode(int elem, AANode left, AANode right)
     {
-        this.element = ele;
+        this.element = elem;
         this.left = left;
         this.right = right;
         this.level = 1;
